@@ -125,7 +125,7 @@ int main(int argc, const char *argv[]) {
 
     if (pLocalCodec == NULL) {
       logging("ERROR unsupported codec!");
-      return -1;
+      continue;
     }
 
     // when the stream is a video we store its index, codec parameters and codec
@@ -249,7 +249,6 @@ int main(int argc, const char *argv[]) {
         // edge detector, for fun
         x = 0;
         y = small.dims(1);
-        ;
         array smallf = small.as(f32);
         array grey = smallf(span, span, 0) + smallf(span, span, 1) +
                      smallf(span, span, 2);
